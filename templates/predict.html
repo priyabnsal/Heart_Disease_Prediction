@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Hello, world!</title>
+    {%load static%}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/predict"
+              >Predict <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Name"
+        name="name"
+      />
+    </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Age"
+            id="age"
+            name="age"
+          />
+        </div>
+        <div class="form-group">
+          <label for="text">Sex</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="sex"
+              value="sex"
+              name=sex
+            />
+            <label class="custom-control-label" for="male">Male</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="customRadio2"
+              name="example"
+              value="customEx"
+            />
+            <label class="custom-control-label" for="customRadio2"
+              >Female</label
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="text">chest pain type</label><br />
+          <select name="cars" class="custom-select-sm">
+            <option selected value="volvo">typical angina</option>
+            <option value="fiat">atypical angina</option>
+            <option value="audi">non-anginal pain</option>
+            <option value="fiat">asymptomatic</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rbp">Resting Blood Pressure</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="rbp"
+            id="rbp"
+            name="rbp"
+          />
+        </div>
+        <div class="form-group">
+          <label for="text">Serum cholesterol cholesterol</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Age"
+            id="Age"
+          />
+        </div>
+        <div class="form-group">
+          <label for="text"
+            >fasting blood sugar (fasting blood sugar > 120 mg/dl) (1 = true; 0
+            = false)</label
+          ><br />
+          <select name="cars" class="custom-select-sm">
+            <!-- <option selected value="volvo">(fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)</option> -->
+            <option value="fiat">1 true</option>
+            <option value="audi">0 false</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="text">Resting electrocardiogram</label>
+          <select name="cars" class="custom-select-sm">
+            <option selected value="volvo">Value 0: normal</option>
+            <option value="fiat">
+              Value 1: having ST-T wave abnormality (T wave inversions and/or ST
+              elevation or depression of > 0.05 mV)
+            </option>
+            <option value="audi">
+              Value 2: showing probable or definite left ventricular hypertrophy
+              by Estes' criteria
+            </option>
+          </select>
+        </div>
+        <input type="submit" value="Predict" class="btn btn-primary" />
+      </form>
+    </div>
+    <div class="container">
+      <img src="static/images/1.png" alt="" />
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
